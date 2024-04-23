@@ -6,36 +6,17 @@ import { SearchButton } from '../../components/SearchButton/SearchButton';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { TextDescription } from '../../components/TextDescription/TextDescription';
 import MOVIE_DATA from '/src/util/MovieData.js';
+import styles from './Home.module.css';
 
 const Home = () => {
   return (
     <main>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '24px',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-            maxWidth: '560px',
-          }}
-        >
+      <div className={styles.intro}>
+        <div className={styles.introTitle}>
           <MainTitle />
           <TextDescription />
         </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: '6px',
-            position: 'relative',
-            alignItems: 'center',
-          }}
-        >
+        <div className={styles.introInput}>
           {/* // todo: сделать единый компонент input для входа и поиска */}
           {/* <Input>
 				<SearchInput />

@@ -37,7 +37,7 @@ const MovieCard = ({ item }) => {
               className={styles.favoriteBtn}
               style={{ color: favorite ? '#37D8A7' : '#7b6ef6' }}
             >
-              В избранное
+              {favorite ? 'В избранном' : 'В избранное'}
             </button>
           </div>
         </div>

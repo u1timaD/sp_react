@@ -1,0 +1,19 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.introTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.introInput {
+  display: flex;
+  gap: 6px;
+  position: relative;
+  align-items: center;
+}

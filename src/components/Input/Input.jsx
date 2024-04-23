@@ -1,4 +1,4 @@
-import styles from './input.module.css';
+import styles from './Input.module.css';
 import searchIcon from '/src/assets/search-icon.svg';
 
 const Input = ({ children }) => {
