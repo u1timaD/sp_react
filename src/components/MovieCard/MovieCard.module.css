@@ -1,0 +1,105 @@
+.card {
+  position: relative;
+  width: 282px;
+  height: 520px;
+  border-radius: 12px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.shadow {
+  position: absolute;
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(80px);
+  z-index: 1;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ratingWrapper {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 4px 8px;
+  padding-left: 28px;
+  border-radius: 8px;
+  z-index: 2;
+}
+.rating {
+  z-index: 2;
+  color: #ffad49;
+}
+
+.rating::before {
+  position: absolute;
+  content: '';
+  background-image: url('/src/assets/star-icon.svg');
+  width: 16px;
+  height: 16px;
+  top: 8px;
+  left: 8px;
+}
+
+.posterWrapper {
+  position: relative;
+  height: 400px;
+}
+
+.poster {
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.posterBack {
+  position: absolute;
+  border-radius: 8px;
+  top: 99px;
+  left: 0;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 16px;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.favoriteWrapper {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  position: relative;
+  z-index: 3;
+}
+
+.favoriteBtn {
+  position: relative;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+}
