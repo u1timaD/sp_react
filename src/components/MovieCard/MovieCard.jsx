@@ -2,6 +2,7 @@ import styles from './MovieCard.module.css';
 import likeIcon from '/src/assets/like-icon.svg';
 import BookmarkIcon from '/src/assets/bookmark-icon.svg';
 import { useState } from 'react';
+import cn from 'classnames';
 
 const MovieCard = ({ item }) => {
   const [favorite, SetFavorite] = useState(false);
@@ -34,8 +35,10 @@ const MovieCard = ({ item }) => {
             />
 
             <button
-              className={styles.favoriteBtn}
-              style={{ color: favorite ? '#37D8A7' : '#7b6ef6' }}
+              className={cn(styles.favoriteBtn, {
+                [styles.favoriteBtnChecked]: favorite,
+                [styles.favoriteBtnNotChecked]: !favorite
+              })}
             >
               {favorite ? 'В избранном' : 'В избранное'}
             </button>

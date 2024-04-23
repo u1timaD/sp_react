@@ -103,3 +103,11 @@
   border: none;
   z-index: 2;
 }
+
+.favoriteBtnChecked {
+  color: #37D8A7;
+}
+
+.favoriteBtnNotChecked {
+  color: #7b6ef6;
+}
