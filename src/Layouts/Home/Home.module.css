@@ -17,3 +17,10 @@
   position: relative;
   align-items: center;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 27px;
+}
