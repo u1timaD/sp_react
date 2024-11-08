@@ -1,14 +1,8 @@
-.intro {
+.form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.introTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 560px;
+  align-items: start;
+  gap: 27px;
 }
 
 .introInput {

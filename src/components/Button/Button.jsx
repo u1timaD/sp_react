@@ -1,12 +1,11 @@
-import { forwardRef } from 'react';
 import styles from './Button.module.css';
 
-const Button = forwardRef(function Button({ value, ...props }, ref) {
+const Button = ({ value, ...props }) => {
   return (
-    <button {...props} className={styles.button} ref={ref}>
+    <button {...props} className={styles.button}>
       {value}
     </button>
   );
-});
+};
 
 export default Button;

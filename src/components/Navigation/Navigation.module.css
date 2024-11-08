@@ -38,3 +38,9 @@
 .navEntry {
 	padding-inline: 32px;
 }
+
+.navEntryLink {
+	display: flex;
+	gap: 8px;
+	color: #A8AEBF;
+}

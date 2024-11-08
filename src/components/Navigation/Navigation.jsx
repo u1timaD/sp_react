@@ -1,15 +1,23 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import styles from './Navigation.module.css';
 import entryIcon from '/src/assets/entry-icon.svg';
 import userIcon from '/src/assets/user-rounded.svg';
+import { Link } from 'react-router-dom';
+import { MainContext, SetMainContext } from '../providers/MainProvider';
 
-const Navigation = ({ headerUserName }) => {
+const Navigation = () => {
   const name = localStorage.getItem('user');
+  const userLogin = useContext(MainContext);
+  const setUserLogin = useContext(SetMainContext);
 
   useEffect(() => {
-    // console.log(JSON.parse(name))
-    // console.log(asd);
+    setUserLogin(JSON.parse(name)?.name);
   }, [name]);
+
+  const handleLogout = () => {
+    window.localStorage.removeItem('user');
+    setUserLogin(null);
+  };
 
   return (
     <ul className={styles.navList}>
@@ -20,17 +28,17 @@ const Navigation = ({ headerUserName }) => {
         <span>Мои фильмы</span>
         <span className={styles.counter}>2</span>
       </li>
-      {headerUserName && (
+      {userLogin && (
         <li className={`${styles.navItem} ${styles.navEntry}`}>
-          <span>{headerUserName}</span>
+          <span>{userLogin}</span>
           <img src={userIcon} width={24} height={24} alt="иконка юзера" />
         </li>
       )}
       <li className={`${styles.navItem} ${styles.navEntry}`}>
-        {headerUserName ? (
-          <span>Выйти</span>
+        {userLogin ? (
+          <span onClick={handleLogout}>Выйти</span>
         ) : (
-          <>
+          <Link to="/login" className={`${styles.navEntryLink}`}>
             <span>Войти</span>
             <img
               src={entryIcon}
@@ -38,7 +46,7 @@ const Navigation = ({ headerUserName }) => {
               height={24}
               alt="иконка входа в личный кабинет"
             />
-          </>
+          </Link>
         )}
       </li>
     </ul>
