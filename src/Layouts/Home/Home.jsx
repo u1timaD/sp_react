@@ -1,30 +1,40 @@
 import Button from '../../components/Button/Button';
-import { MainTitle } from '../../components/MainTitle/MainTitle';
+import { Title } from '../../components/Title/Title';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import MovieList from '../../components/MovieList/MovieList';
-import { SearchButton } from '../../components/SearchButton/SearchButton';
-import SearchInput from '../../components/SearchInput/SearchInput';
-import { TextDescription } from '../../components/TextDescription/TextDescription';
+import Label from '../../components/Label/Label';
 import MOVIE_DATA from '/src/util/MovieData.js';
 import styles from './Home.module.css';
+import Input from '../../components/Input/Input';
+import { TextDescription } from '../../components/TextDescription/TextDescription';
+import { useRef } from 'react';
 
 const Home = () => {
+  const inputRef = useRef(null);
+
+  const handleFocus = () => {
+    if (inputRef) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
-    <main>
+    <>
       <div className={styles.intro}>
         <div className={styles.introTitle}>
-          <MainTitle />
+          <Title value="Поиск" />
           <TextDescription />
         </div>
         <div className={styles.introInput}>
-          {/* // todo: сделать единый компонент input для входа и поиска */}
-          {/* <Input>
-				<SearchInput />
-			</Input> */}
-          <SearchInput />
-          <Button>
-            <SearchButton />
-          </Button>
+          <Label>
+            <Input
+              isSearch={true}
+              name="search"
+              placeholder="Введите название"
+              ref={inputRef}
+            />
+          </Label>
+          <Button value="Искать" onClick={handleFocus} />
         </div>
       </div>
       <MovieList>
@@ -32,7 +42,7 @@ const Home = () => {
           <MovieCard key={item.id} item={item} />
         ))}
       </MovieList>
-    </main>
+    </>
   );
 };
 

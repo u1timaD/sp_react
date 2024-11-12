@@ -1,18 +1,22 @@
 import './App.css';
-import Header from './Layouts/Header/Header';
-import Logo from './components/Logo/logo';
-import Navigation from './components/Navigation/Navigation';
 import Home from './Layouts/Home/Home';
+import Login from './components/Login/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainLayout from './Layouts/MainLayout';
+import MainProvider from './components/providers/MainProvider';
 
 function App() {
   return (
-    <>
-      <Header>
-        <Logo />
-        <Navigation />
-      </Header>
-      <Home />
-    </>
+    <MainProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </MainProvider>
   );
 }
 
