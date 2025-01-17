@@ -8,27 +8,27 @@ import { useNavigate } from 'react-router-dom';
 import { SetMainContext } from '../providers/MainProvider';
 
 const Login = () => {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState<string | null>(null);
   const [isLogined, setIsLogined] = useState(false);
   const setUserLogin = useContext(SetMainContext);
   const navigate = useNavigate();
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const onChangeInput = (text) => {
+  const onChangeInput = (text: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = text.target.value;
     setUserName(inputValue);
   };
 
-  const handleClickBtn = (e) => {
-    if (inputRef) {
-      inputRef.current.focus();
-    }
+  const handleClickBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (inputRef) {
+      inputRef.current!.focus();
+    }
     if (isLogined) {
       const userLogIn = {
         name: 'вася',
-        isLogined: 'true'
+        isLogined: 'true',
       };
 
       const jsonUserLogIn = JSON.stringify(userLogIn);
@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (userName.trim().toLowerCase() === 'вася') {
+    if (userName?.trim().toLowerCase() === 'вася') {
       setIsLogined(true);
     }
   }, [userName]);

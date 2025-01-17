@@ -1,8 +1,12 @@
 import { forwardRef } from 'react';
 import styles from './Input.module.css';
 import searchIcon from '/src/assets/search-icon.svg';
+import { InputType } from './Input.types';
 
-const Input = forwardRef(function Input({ isSearch, ...props }, ref) {
+const Input = forwardRef<HTMLInputElement, InputType>(function Input(
+  { isSearch, ...props },
+  ref
+) {
   return (
     <>
       {isSearch && (

@@ -3,18 +3,18 @@ import { Title } from '../../components/Title/Title';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import MovieList from '../../components/MovieList/MovieList';
 import Label from '../../components/Label/Label';
-import MOVIE_DATA from '/src/util/MovieData.js';
 import styles from './Home.module.css';
 import Input from '../../components/Input/Input';
 import { TextDescription } from '../../components/TextDescription/TextDescription';
 import { useRef } from 'react';
+import MOVIE_DATA from '../../util/MovieData';
 
 const Home = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
     if (inputRef) {
-      inputRef.current.focus();
+      inputRef.current!.focus();
     }
   };
 

@@ -3,8 +3,9 @@ import likeIcon from '/src/assets/like-icon.svg';
 import BookmarkIcon from '/src/assets/bookmark-icon.svg';
 import { useState } from 'react';
 import cn from 'classnames';
+import { MoviesCardType } from './MoviesCard.types';
 
-const MovieCard = ({ item }) => {
+const MovieCard = ({ item }: MoviesCardType) => {
   const [favorite, SetFavorite] = useState(false);
 
   const handleClickFavorite = () => {
@@ -37,7 +38,7 @@ const MovieCard = ({ item }) => {
             <button
               className={cn(styles.favoriteBtn, {
                 [styles.favoriteBtnChecked]: favorite,
-                [styles.favoriteBtnNotChecked]: !favorite
+                [styles.favoriteBtnNotChecked]: !favorite,
               })}
             >
               {favorite ? 'В избранном' : 'В избранное'}

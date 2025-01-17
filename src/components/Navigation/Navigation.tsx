@@ -11,7 +11,7 @@ const Navigation = () => {
   const setUserLogin = useContext(SetMainContext);
 
   useEffect(() => {
-    setUserLogin(JSON.parse(name)?.name);
+    setUserLogin(JSON.parse(name!)?.name);
   }, [name]);
 
   const handleLogout = () => {
